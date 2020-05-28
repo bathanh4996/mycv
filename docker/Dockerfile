@@ -23,6 +23,7 @@ RUN docker-php-ext-configure intl
 RUN docker-php-ext-install intl
 
 ENV COMPOSER_HOME /composer
+ENV APACHE_DOCUMENT_ROOT=/var/www/html/
 ENV PATH ./vendor/bin:/composer/vendor/bin:$PATH
 ENV COMPOSER_ALLOW_SUPERUSER 1
 RUN curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer

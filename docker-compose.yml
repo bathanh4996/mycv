@@ -1,0 +1,17 @@
+version: "3.1"
+services:
+  www:
+    build: ./docker
+    volumes:
+      - ./:/var/www/html/:delegated
+    expose:
+      - 80
+    environment:
+      VIRTUAL_HOST: ${WWW_DOMAINS}
+      VIRTUAL_PORT: 80
+      LETSENCRYPT_HOST: ${WWW_DOMAINS}
+      LETSENCRYPT_EMAIL: webmaster@acaziasoft.com
+networks:
+  default:
+    external:
+      name: webproxy
